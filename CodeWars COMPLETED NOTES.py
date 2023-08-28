@@ -1,3 +1,4 @@
+
 #CodeWars
 #question :
 import functools
