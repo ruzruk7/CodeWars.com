@@ -87,3 +87,71 @@ def odd_or_even(arr):
         return('odd')
     
 # Problem 4 
+# DESCRIPTION:
+# Implement a function that adds two numbers together and returns their sum in binary. The conversion can be done before, or after the addition.
+
+# The binary number returned should be a string.
+
+# Examples:(Input1, Input2 --> Output (explanation)))
+
+# 1, 1 --> "10" (1 + 1 = 2 in decimal or 10 in binary)
+# 5, 9 --> "1110" (5 + 9 = 14 in decimal or 1110 in binary)
+def add_binary(a,b):
+    return (bin(a+b).removeprefix('0b'))
+
+# Problem 5 
+# DESCRIPTION:
+# In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+
+# Examples
+# high_and_low("1 2 3 4 5")  # return "5 1"
+# high_and_low("1 2 -3 4 5") # return "5 -3"
+# high_and_low("1 9 3 4 -5") # return "9 -5"
+# Notes
+# All numbers are valid Int32, no need to validate them.
+# There will always be at least one number in the input string.
+# Output string must be two numbers separated by a single space, and highest number is first.
+
+def high_and_low(numbers):
+    numbers = numbers.split()
+    return (f'{max(numbers, key=int)} {min(numbers, key=int)}')
+
+# PROBLEM 6
+# DESCRIPTION:
+# Task:
+# Your task is to write a function which returns the sum of following series upto nth term(parameter).
+
+# Series: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...
+# Rules:
+# You need to round the answer to 2 decimal places and return it as String.
+
+# If the given value is 0 then it should return 0.00
+
+# You will only be given Natural Numbers as arguments.
+
+# Examples:(Input --> Output)
+# 1 --> 1 --> "1.00"
+# 2 --> 1 + 1/4 --> "1.25"
+# 5 --> 1 + 1/4 + 1/7 + 1/10 + 1/13 --> "1.57"
+def series_sum(n):
+    num_list = []
+    if n == 0:
+        return (f'{n:.2f}')
+    elif n == 1 :
+        return (f'{n:.2f}')
+    else:
+        denom = 4
+        num_list.append(1)
+        for i in range(1, n):
+            value = (1/denom)
+            num_list.append(value)
+            denom += 3
+        return (f'{round(sum(num_list), 2):.2f}')
+    
+def series_sum(n):
+    sum = 0.0
+    for i in range(0,n):
+        sum += 1 / (1 + 3 * float(i))
+    return '%.2f' % sum
+
+# PROBLEM 7
