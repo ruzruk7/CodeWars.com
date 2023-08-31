@@ -484,4 +484,54 @@ def remove_exclamation_marks(s):
     # ss = s.replace('!','')
     return print(s.replace('!',''))
 
-remove_exclamation_marks("Hi! Hello!") #"Hi Hello")
+#PROBLEM 
+# 8 kyu
+# You're writing code to control your town's traffic lights. You need a function to handle each change from green, to yellow, to red, and then to green again.
+
+# Complete the function that takes a string as an argument representing the current state of the light and returns a string representing the state the light should change to.
+
+# For example, when the input is green, output should be yellow.
+def update_light(current):
+    signal = ['red', 'green', 'yellow']
+    current_signal = signal.index(current)
+    if current_signal == 2:
+        current_signal = -1
+    return (signal[(current_signal+1)])
+
+# good alternative 
+def update_light(current):
+    '''this works by settings the next light in a signal as the VALUE of the current light which is the KEY'''
+    signals ={"green": "yellow", "yellow": "red", "red": "green"}
+    return signals[current]
+
+
+#PROBLEM
+# 6 KYU
+# Your task is to construct a building which will be a pile of n cubes.
+#  The cube at the bottom will have a volume of �3n3, the cube above will have volume of (�−1)3(n−1)3 and so on until the top which will have a volume of 1313.
+# You are given the total volume m of the building.
+#  Being given m can you find the number n of cubes you will have to build?
+# The parameter of the function findNb (find_nb, find-nb, findNb, ...) will be an integer m and you have to return the integer n such as �3+(�−1)3+(�−2)3+...+13=�n3+(n−1)3+(n−2)3+...+13=m if such a n exists or -1 if there is no such n.
+# Examples:
+# find_nb(1071225) --> 45
+# find_nb(91716553919377) --> -1
+def find_nb(m):
+    '''we move the equation accross the = sign making it (n + 1)^3.
+      when we keep adding 1 to n eventually n will equal m if this never occurs then we return -1.
+      
+      '''
+    top = 1
+    n = 0 
+    while n <= m:
+        n  += top**3
+        if n == m: # this is needed to stop top being updated even after n > m. so we return top before we add 1 to top
+            return (top)
+        top += 1
+    else:
+        return (-1)
+    
+
+        
+find_nb(1071225)
+    
+
