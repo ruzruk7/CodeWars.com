@@ -551,12 +551,11 @@ def accum(s):
             break
         string += '-'
     s_list = string.split('-')
-    print(s_list)
     formatted = []
     for value in s_list:
         cap_first_let = value.title()
         formatted.append(cap_first_let)
-    return print('-'.join(formatted))
+    return ('-'.join(formatted))
     
             
 
