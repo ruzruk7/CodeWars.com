@@ -531,7 +531,33 @@ def find_nb(m):
         return (-1)
     
 
-        
-find_nb(1071225)
-    
+# PROBLEM
+# 7 KYU
+# This time no story, no theory. The examples below show you how to write function accum:
 
+# Examples:
+# accum("abcd") -> "A-Bb-Ccc-Dddd"
+# accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+# accum("cwAt") -> "C-Ww-Aaa-Tttt"
+# The parameter of accum is a string which includes only letters from a..z and A..Z.
+def accum(s):
+    s_list = list(s)
+    string = ''
+    for number, value in enumerate(s_list):
+        for i in range(number+1):
+            string += value
+        if number >= (len(s_list)-1):
+            # return print(string)
+            break
+        string += '-'
+    s_list = string.split('-')
+    print(s_list)
+    formatted = []
+    for value in s_list:
+        cap_first_let = value.title()
+        formatted.append(cap_first_let)
+    return print('-'.join(formatted))
+    
+            
+
+accum("abcd") # "A-Bb-Ccc-Dddd"
