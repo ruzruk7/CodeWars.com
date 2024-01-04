@@ -557,6 +557,17 @@ def accum(s):
         formatted.append(cap_first_let)
     return ('-'.join(formatted))
     
-            
-
 accum("abcd") # "A-Bb-Ccc-Dddd"
+
+
+def unique_in_order(sequence):
+    lis = []
+    temp = ""
+    for x in sequence:
+        if x != temp:
+           lis.append(x.upper()) 
+        temp = x 
+    return lis
+unique_in_order('AAAABBBCCDAABBB')# == ['A', 'B', 'C', 'D', 'A', 'B']
+
+#unique_in_order('AAAABBBCCDAABBB') == ['A', 'B', 'C', 'D', 'A', 'B']
